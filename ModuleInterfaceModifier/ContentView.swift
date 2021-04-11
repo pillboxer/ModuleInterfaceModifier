@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var delegate = ModuleInterfaceDropDelegate()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Button("Drag to me") {}
+                .frame(width: 100, height: 100)
+                .onDrop(of: [.fileURL], delegate: delegate)
+                .background(Color.red)
+                .alert(isPresented: $delegate.disallowedFormatReceived, content: {
+                    Alert(title: Text("Sorry not allowed"))
+                })
+        }
+
     }
 }
 
