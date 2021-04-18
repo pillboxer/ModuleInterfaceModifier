@@ -27,13 +27,19 @@ class PatchHelper {
         if let folder = Diglet.folderAt(url: url) {
             return attemptPatch(on: folder)
         }
-        else {
-            return false
+        else if let file = Diglet.fileAt(url: url) {
+            return attemptPatch(on: file)
         }
+        return false
     }
     
     private func attemptPatch(on folder: Folder) -> Bool {
         print("Attempting patch on \(folder)")
+        return false
+    }
+    
+    private func attemptPatch(on file: File) -> Bool {
+        print("Attempting patch on \(file)")
         return false
     }
     

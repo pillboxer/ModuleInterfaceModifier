@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8627A5EF262C1B8F001E2ECA /* Diglet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C3D56262325AE00C1C97E /* Diglet.framework */; };
+		8627A5F0262C1B8F001E2ECA /* Diglet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868C3D56262325AE00C1C97E /* Diglet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		865EB2BD262317B8006ADBDA /* PatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865EB2BC262317B8006ADBDA /* PatchHelper.swift */; };
-		868C3D63262328BE00C1C97E /* Diglet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868C3D56262325AE00C1C97E /* Diglet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		868DD3C2262C4B3500DE8CB5 /* test.swiftinterface in Resources */ = {isa = PBXBuildFile; fileRef = 8690A85E262C361600B25DAA /* test.swiftinterface */; };
 		86AB1D27261E03F800824DDE /* ModuleInterfaceModifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AB1D26261E03F800824DDE /* ModuleInterfaceModifierApp.swift */; };
 		86AB1D29261E03F800824DDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AB1D28261E03F800824DDE /* ContentView.swift */; };
 		86AB1D2B261E03F900824DDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AB1D2A261E03F900824DDE /* Assets.xcassets */; };
@@ -50,13 +52,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8613EA492622F11A00287225 /* Embed Frameworks */ = {
+		8627A5F1262C1B8F001E2ECA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				868C3D63262328BE00C1C97E /* Diglet.framework in Embed Frameworks */,
+				8627A5F0262C1B8F001E2ECA /* Diglet.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +71,7 @@
 		865EB2BC262317B8006ADBDA /* PatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchHelper.swift; sourceTree = "<group>"; };
 		868B98312622F04E00D95DDD /* Diglet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Diglet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		868C3D50262325AE00C1C97E /* Diglet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Diglet.xcodeproj; path = ../Diglet/Diglet.xcodeproj; sourceTree = "<group>"; };
+		8690A85E262C361600B25DAA /* test.swiftinterface */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.swiftinterface; sourceTree = "<group>"; };
 		86AB1D23261E03F800824DDE /* ModuleInterfaceModifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModuleInterfaceModifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86AB1D26261E03F800824DDE /* ModuleInterfaceModifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleInterfaceModifierApp.swift; sourceTree = "<group>"; };
 		86AB1D28261E03F800824DDE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8627A5EF262C1B8F001E2ECA /* Diglet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +141,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8690A810262C32DE00B25DAA /* Test Files */ = {
+			isa = PBXGroup;
+			children = (
+				8690A85E262C361600B25DAA /* test.swiftinterface */,
+			);
+			path = "Test Files";
+			sourceTree = "<group>";
+		};
 		86AB1D1A261E03F800824DDE = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +174,7 @@
 		86AB1D25261E03F800824DDE /* ModuleInterfaceModifier */ = {
 			isa = PBXGroup;
 			children = (
+				8690A810262C32DE00B25DAA /* Test Files */,
 				865EB2BB262317A7006ADBDA /* Patching */,
 				86AB1D5D261E043100824DDE /* Drop Delegate */,
 				86AB1D26261E03F800824DDE /* ModuleInterfaceModifierApp.swift */,
@@ -218,7 +231,7 @@
 				86AB1D1F261E03F800824DDE /* Sources */,
 				86AB1D20261E03F800824DDE /* Frameworks */,
 				86AB1D21261E03F800824DDE /* Resources */,
-				8613EA492622F11A00287225 /* Embed Frameworks */,
+				8627A5F1262C1B8F001E2ECA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				868DD3C2262C4B3500DE8CB5 /* test.swiftinterface in Resources */,
 				86AB1D2E261E03F900824DDE /* Preview Assets.xcassets in Resources */,
 				86AB1D2B261E03F900824DDE /* Assets.xcassets in Resources */,
 			);
@@ -527,6 +541,12 @@
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ModuleInterfaceModifier/Test\\ Files",
+					"$(PROJECT_DIR)/ModuleInterfaceModifier/Test\\ Files",
+					"$(PROJECT_DIR)/ModuleInterfaceModifier/Test\\ Files/Test/ios-arm64",
+				);
 				INFOPLIST_FILE = ModuleInterfaceModifier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -551,6 +571,12 @@
 				DEVELOPMENT_TEAM = ZUT4ATB28X;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ModuleInterfaceModifier/Test\\ Files",
+					"$(PROJECT_DIR)/ModuleInterfaceModifier/Test\\ Files",
+					"$(PROJECT_DIR)/ModuleInterfaceModifier/Test\\ Files/Test/ios-arm64",
+				);
 				INFOPLIST_FILE = ModuleInterfaceModifier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
