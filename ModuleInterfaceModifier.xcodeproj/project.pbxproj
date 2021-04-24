@@ -10,6 +10,8 @@
 		8627A5EF262C1B8F001E2ECA /* Diglet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868C3D56262325AE00C1C97E /* Diglet.framework */; };
 		8627A5F0262C1B8F001E2ECA /* Diglet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868C3D56262325AE00C1C97E /* Diglet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		865EB2BD262317B8006ADBDA /* PatchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865EB2BC262317B8006ADBDA /* PatchHelper.swift */; };
+		8687093726346B7600AB38E9 /* incorrect.swiftinterface in Resources */ = {isa = PBXBuildFile; fileRef = 8687093626346B7600AB38E9 /* incorrect.swiftinterface */; };
+		8687093D26346B9D00AB38E9 /* correct.swiftinterface in Resources */ = {isa = PBXBuildFile; fileRef = 8687093C26346B9D00AB38E9 /* correct.swiftinterface */; };
 		868DD3C2262C4B3500DE8CB5 /* test.swiftinterface in Resources */ = {isa = PBXBuildFile; fileRef = 8690A85E262C361600B25DAA /* test.swiftinterface */; };
 		86AB1D27261E03F800824DDE /* ModuleInterfaceModifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AB1D26261E03F800824DDE /* ModuleInterfaceModifierApp.swift */; };
 		86AB1D29261E03F800824DDE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AB1D28261E03F800824DDE /* ContentView.swift */; };
@@ -69,6 +71,8 @@
 		860743A92622E8CF009A34FB /* Diglet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Diglet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		860743BB2622EEED009A34FB /* Diglet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Diglet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		865EB2BC262317B8006ADBDA /* PatchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchHelper.swift; sourceTree = "<group>"; };
+		8687093626346B7600AB38E9 /* incorrect.swiftinterface */ = {isa = PBXFileReference; lastKnownFileType = text; path = incorrect.swiftinterface; sourceTree = "<group>"; };
+		8687093C26346B9D00AB38E9 /* correct.swiftinterface */ = {isa = PBXFileReference; lastKnownFileType = text; path = correct.swiftinterface; sourceTree = "<group>"; };
 		868B98312622F04E00D95DDD /* Diglet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Diglet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		868C3D50262325AE00C1C97E /* Diglet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Diglet.xcodeproj; path = ../Diglet/Diglet.xcodeproj; sourceTree = "<group>"; };
 		8690A85E262C361600B25DAA /* test.swiftinterface */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.swiftinterface; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				8690A85E262C361600B25DAA /* test.swiftinterface */,
+				8687093626346B7600AB38E9 /* incorrect.swiftinterface */,
+				8687093C26346B9D00AB38E9 /* correct.swiftinterface */,
 			);
 			path = "Test Files";
 			sourceTree = "<group>";
@@ -349,8 +355,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				868DD3C2262C4B3500DE8CB5 /* test.swiftinterface in Resources */,
+				8687093726346B7600AB38E9 /* incorrect.swiftinterface in Resources */,
 				86AB1D2E261E03F900824DDE /* Preview Assets.xcassets in Resources */,
 				86AB1D2B261E03F900824DDE /* Assets.xcassets in Resources */,
+				8687093D26346B9D00AB38E9 /* correct.swiftinterface in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,8 +39,16 @@ class PatchHelper {
     }
     
     private func attemptPatch(on file: File) -> Bool {
-        print("Attempting patch on \(file)")
-        return false
+        guard AcceptedPath.isAcceptedPath(file.extension.rawValue) else {
+            return false
+        }
+        // FIXME: - 
+        // This must be a Swift Interface File
+        return true
+    }
+    
+    private func removeModuleNamesFollowedByPeriod() {
+        
     }
     
 }

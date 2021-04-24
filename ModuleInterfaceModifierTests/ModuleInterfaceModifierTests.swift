@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Diglet
 @testable import ModuleInterfaceModifier
 
 class ModuleInterfaceModifierTests: XCTestCase {
@@ -14,11 +15,23 @@ class ModuleInterfaceModifierTests: XCTestCase {
         Bundle(identifier: "com.sixeye.ModuleInterfaceModifier")!
     }
     
-    private var testFile: URL { bundle.url(forResource: "test", withExtension: "swiftinterface")! }
+    private var testFile: URL { URL(string: "file:///Users/henrycooper/Documents/Test%20Interfaces/test.swiftinterface")! }
+    private var incorrectFile: URL { URL(string: "file:///Users/henrycooper/Documents/Test%20Interfaces/incorrect.switinterface")! }
+    private var correctFile: URL {  URL(string: "file:///Users/henrycooper/Documents/Test%20Interfaces/correct.swiftinterface")! }
+    
+    func loadIncorrectSwiftInterface() {
+        // FIXME: -
+        let incorrect = Diglet.fileAt(url: incorrectFile)!
+        let test = Diglet.fileAt(url: testFile)!
+        let string = Diglet.read(file: incorrect)
+        try! Diglet.write(string!, to: test)
+    }
  
     func testPatchHelperCanPatchSwiftInterfaceFile() {
+        // FIXME: - 
+        loadIncorrectSwiftInterface()
         let helper = PatchHelper()
-        helper.attemptPatch(on: testFile)
+        XCTAssertTrue(helper.attemptPatch(on: testFile))
     }
 
 }
