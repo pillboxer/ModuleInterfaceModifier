@@ -23,7 +23,7 @@ class PatchHelper {
         
     }
     
-    func attemptPatch(on url: URL) -> Bool {
+    @discardableResult func attemptPatch(on url: URL) -> Bool {
         if let folder = Diglet.folderAt(url: url) {
             return attemptPatch(on: folder)
         }
@@ -42,13 +42,11 @@ class PatchHelper {
         guard AcceptedPath.isAcceptedPath(file.extension.rawValue) else {
             return false
         }
-        // FIXME: - 
-        // This must be a Swift Interface File
+        let fileContents = Diglet.read(file: file)
+        let newContents = fileContents?.replacingOccurrences(of: "NSAttribeautiful.", with: "") ?? ""
+        try! Diglet.write(newContents, to: file)
         return true
     }
     
-    private func removeModuleNamesFollowedByPeriod() {
-        
-    }
     
 }
