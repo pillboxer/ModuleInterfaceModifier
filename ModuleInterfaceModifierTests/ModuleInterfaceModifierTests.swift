@@ -44,7 +44,6 @@ class ModuleInterfaceModifierTests: XCTestCase {
  
     func testPatchHelperCanPatchSwiftInterfaceFile() {
         // FIXME: - Working but needs fix
-        #error("You are here")
         let patchHelper = PatchHelper()
         patchHelper.attemptPatch(on: incorrectFileURL)
         let patched = Diglet.fileAt(url: incorrectFileURL)!

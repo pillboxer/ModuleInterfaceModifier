@@ -39,14 +39,26 @@ class PatchHelper {
     }
     
     private func attemptPatch(on file: File) -> Bool {
-        guard AcceptedPath.isAcceptedPath(file.extension.rawValue) else {
+        guard AcceptedPath.isAcceptedPath(file.extension.rawValue),
+              let fileContents = Diglet.read(file: file),
+              let moduleName = discoverModuleNameFrom(fileContents) else {
             return false
         }
-        let fileContents = Diglet.read(file: file)
-        let newContents = fileContents?.replacingOccurrences(of: "NSAttribeautiful.", with: "") ?? ""
-        try! Diglet.write(newContents, to: file)
-        return true
+        let newContents = fileContents.replacingOccurrences(of: "\(moduleName).", with: "")
+        do {
+            try Diglet.write(newContents, to: file)
+            return true
+        }
+        catch {
+            return false
+        }
     }
     
+    private func discoverModuleNameFrom(_ contents: String) -> String? {
+        contents.components(separatedBy: "-module-name").last?
+            .components(separatedBy: "\n").first?
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+
+    }
     
 }
