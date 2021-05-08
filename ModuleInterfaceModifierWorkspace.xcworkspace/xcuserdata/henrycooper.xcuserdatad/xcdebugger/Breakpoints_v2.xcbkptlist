@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BA8CA4CF-96CA-434E-A6A7-C89A918FAA64"
-            shouldBeEnabled = "Yes"
+            uuid = "2ED0B2C0-15FF-402F-AFBB-3FE903322673"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ModuleInterfaceModifier/Patching/PatchHelper.swift"
+            filePath = "ModuleInterfaceModifierTests/ModuleInterfaceModifierTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "attemptPatch(on:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "163C9CDE-9536-47D1-B490-F7B327157D19"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ModuleInterfaceModifier/Patching/PatchHelper.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "attemptPatch(on:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "loadIncorrectSwiftInterface()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

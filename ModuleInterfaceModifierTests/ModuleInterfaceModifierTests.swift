@@ -42,10 +42,9 @@ class ModuleInterfaceModifierTests: XCTestCase {
         try! string?.write(to: correctFileURL, atomically: true, encoding: .utf8)
     }
  
-    func testPatchHelperCanPatchSwiftInterfaceFile() {
-        // FIXME: - Working but needs fix
+    func testPatchHelperCanPatchSwiftInterfaceFile() throws {
         let patchHelper = PatchHelper()
-        patchHelper.attemptPatch(on: incorrectFileURL)
+        try patchHelper.attemptPatch(on: incorrectFileURL)
         let patched = Diglet.fileAt(url: incorrectFileURL)!
         let patchedContents = Diglet.read(file: patched)
         let correctFile = Diglet.fileAt(url: correctFileURL)!
