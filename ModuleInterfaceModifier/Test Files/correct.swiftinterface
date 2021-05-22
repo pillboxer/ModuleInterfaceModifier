@@ -1,0 +1,46 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-macos10.13 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name NSAttribeautiful
+import AppKit
+import Cocoa
+import Foundation
+@_exported import NSAttribeautiful
+import Swift
+import SwiftUI
+extension NSAttribeautiful {
+  public static var debugLogLevel: DebugLogLevel
+}
+@available(OSX 10.15.0, *)
+public struct NSAttribeautifulLabelRepresentable : SwiftUI.NSViewRepresentable {
+  public func makeNSView(context: NSAttribeautifulLabelRepresentable.Context) -> some AppKit.NSView
+  
+  public func updateNSView(_ nsView: @_opaqueReturnTypeOf("$s16NSAttribeautiful0A18LabelRepresentableV10makeNSView7contextQr7SwiftUI0eC7ContextVyACG_tF", 0) 🦸, context: NSAttribeautifulLabelRepresentable.Context)
+  public typealias NSViewType = @_opaqueReturnTypeOf("$s16NSAttribeautiful0A18LabelRepresentableV10makeNSView7contextQr7SwiftUI0eC7ContextVyACG_tF", 0) 🦸
+  public typealias Coordinator = Swift.Void
+  public typealias Body = Swift.Never
+}
+extension NSAttribeautiful {
+  public static func identifyAbbreviation(_ abbreviation: Swift.String, withFont font: Swift.String)
+}
+public enum DebugLogLevel : Swift.Int {
+  case none
+  case errors
+  case verbose
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+}
+public class NSAttribeautiful {
+  public init(document: Swift.String, customPrefix: Swift.Character? = nil, customSuffix: Swift.Character? = nil)
+  public func beautifiedDocument() throws -> Foundation.NSAttributedString
+  @available(iOS 13.0, OSX 10.15, *)
+  public func representable(alignment: AppKit.NSTextAlignment = .natural) -> NSAttribeautifulLabelRepresentable?
+  @objc deinit
+}
+extension NSAttributedString {
+}
+extension DebugLogLevel : Swift.Equatable {}
+extension DebugLogLevel : Swift.Hashable {}
+extension DebugLogLevel : Swift.RawRepresentable {}

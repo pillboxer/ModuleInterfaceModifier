@@ -6,28 +6,50 @@
 //
 
 import XCTest
+import Diglet
 @testable import ModuleInterfaceModifier
 
 class ModuleInterfaceModifierTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    private static func documentsURL() -> URL {
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
+    
+    override func setUp() {
+        loadIncorrectSwiftInterface()
+        loadCorrectSwiftInterface()
+        loadUnreadableFile()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    var bundle: Bundle {
+        Bundle(identifier: "com.sixeye.ModuleInterfaceModifier")!
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    var bundledIncorrectFile: URL { bundle.url(forResource: incorrectSwiftInterfaceFileName, withExtension: swiftInterfaceFileExtension)! }
+    var incorrectFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(incorrectSwiftInterfaceFile) }
+    
+    var bundledCorrectFile: URL { bundle.url(forResource: correctSwiftInterfaceFileName, withExtension: swiftInterfaceFileExtension)! }
+    var correctFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(correctSwiftInterfaceFile) }
+    
+    var disallowedFormatFile: URL { URL(string: "file://someurl.nope")! }
+    var unreadableFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(unreadableFile) }
+    
+    private func loadIncorrectSwiftInterface() {
+        let localIncorrect = Diglet.fileAt(url: bundledIncorrectFile)!
+        let string = Diglet.read(file: localIncorrect)
+        try! string?.write(to: incorrectFileURL, atomically: true, encoding: .utf8)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    private func loadCorrectSwiftInterface() {
+        let localCorrect = Diglet.fileAt(url: bundledCorrectFile)!
+        let string = Diglet.read(file: localCorrect)
+        try! string?.write(to: correctFileURL, atomically: true, encoding: .utf8)
+    }
+    
+    private func loadUnreadableFile() {
+        let localCorrect = Diglet.fileAt(url: bundledCorrectFile)!
+        let string = Diglet.read(file: localCorrect)
+        try! string?.write(to: unreadableFileURL, atomically: true, encoding: .unicode)
     }
 
 }
