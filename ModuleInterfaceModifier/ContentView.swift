@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @StateObject var delegate = ModuleInterfaceDropDelegate()
     @State var showAlert = false
     

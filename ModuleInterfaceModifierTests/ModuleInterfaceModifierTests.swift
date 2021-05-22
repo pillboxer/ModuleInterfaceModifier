@@ -18,17 +18,21 @@ class ModuleInterfaceModifierTests: XCTestCase {
     override func setUp() {
         loadIncorrectSwiftInterface()
         loadCorrectSwiftInterface()
+        loadUnreadableFile()
     }
 
     var bundle: Bundle {
         Bundle(identifier: "com.sixeye.ModuleInterfaceModifier")!
     }
     
-    private var bundledIncorrectFile: URL { bundle.url(forResource: incorrectSwiftInterfaceFileName, withExtension: swiftInterfaceFileExtension)! }
-    private var incorrectFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(incorrectSwiftInterfaceFile) }
+    var bundledIncorrectFile: URL { bundle.url(forResource: incorrectSwiftInterfaceFileName, withExtension: swiftInterfaceFileExtension)! }
+    var incorrectFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(incorrectSwiftInterfaceFile) }
     
-    private var bundledCorrectFile: URL { bundle.url(forResource: correctSwiftInterfaceFileName, withExtension: swiftInterfaceFileExtension)! }
-    private var correctFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(correctSwiftInterfaceFile) }
+    var bundledCorrectFile: URL { bundle.url(forResource: correctSwiftInterfaceFileName, withExtension: swiftInterfaceFileExtension)! }
+    var correctFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(correctSwiftInterfaceFile) }
+    
+    var disallowedFormatFile: URL { URL(string: "file://someurl.nope")! }
+    var unreadableFileURL: URL { ModuleInterfaceModifierTests.documentsURL().appendingPathComponent(unreadableFile) }
     
     private func loadIncorrectSwiftInterface() {
         let localIncorrect = Diglet.fileAt(url: bundledIncorrectFile)!
@@ -41,15 +45,11 @@ class ModuleInterfaceModifierTests: XCTestCase {
         let string = Diglet.read(file: localCorrect)
         try! string?.write(to: correctFileURL, atomically: true, encoding: .utf8)
     }
- 
-    func testPatchHelperCanPatchSwiftInterfaceFile() throws {
-        let patchHelper = PatchHelper()
-        try patchHelper.attemptPatch(on: incorrectFileURL)
-        let patched = Diglet.fileAt(url: incorrectFileURL)!
-        let patchedContents = Diglet.read(file: patched)
-        let correctFile = Diglet.fileAt(url: correctFileURL)!
-        let correctFileContents = Diglet.read(file: correctFile)
-        XCTAssertEqual(patchedContents, correctFileContents)
+    
+    private func loadUnreadableFile() {
+        let localCorrect = Diglet.fileAt(url: bundledCorrectFile)!
+        let string = Diglet.read(file: localCorrect)
+        try! string?.write(to: unreadableFileURL, atomically: true, encoding: .unicode)
     }
 
 }

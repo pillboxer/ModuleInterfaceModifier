@@ -22,7 +22,8 @@ enum PatchError: LocalizedError, Equatable {
         case .couldNotReadFile:
             return "Unable to read file"
         case .nothingToDo:
-            return "Looks like this file is already patched."        }
+            return "Looks like this file is already patched."
+        }
     }
 }
 
@@ -88,7 +89,8 @@ class PatchHelper {
     
     private func discoverModuleNameFrom(_ contents: String) throws -> String {
         
-        guard let lastComponent = contents.components(separatedBy: "-module-name").last,
+        guard contents.contains("-module-name"),
+              let lastComponent = contents.components(separatedBy: "-module-name").last,
               let moduleName = lastComponent.components(separatedBy: "\n").first else {
             throw PatchError.couldNotDiscoverModuleName
         }
